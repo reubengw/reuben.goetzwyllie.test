@@ -1,4 +1,5 @@
 import "./Card.scss";
+import Promotion from "./Promotion";
 const Card = ({ product }) => {
   return (
     <div className="product-card">
@@ -8,7 +9,12 @@ const Card = ({ product }) => {
         src="http://placekitten.com/200/300"
       ></img>
       <div className="product-card__promo">
-        <div className="product-card__promo__label">Sale</div>
+        {product.isSale && (
+          <Promotion classNames={"onsale"} content="Sale"></Promotion>
+        )}
+        {product.isExclusive && (
+          <Promotion classNames={"exclusive"} content="Exclusive"></Promotion>
+        )}
       </div>
       <div className="product-card__info">
         <div className="product-card__info__name">{product.productName}</div>
