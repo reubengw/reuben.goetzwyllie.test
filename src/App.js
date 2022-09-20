@@ -16,7 +16,10 @@ function App() {
   return (
     <div className="App">
       <div>
-        <Header title={"Women's tops"}></Header>
+        <Header
+          title={"Women's tops"}
+          filterOptions={["XS", "S", "M", "L", "XL"]}
+        ></Header>
         <ProductCatalogue products={displayedProducts}></ProductCatalogue>
       </div>
     </div>

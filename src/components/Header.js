@@ -12,13 +12,12 @@ const StyledHeader = styled.div`
   width: 100%;
 `;
 
-const Header = ({ title }) => {
+const Header = ({ title, filterOptions }) => {
   return (
     <StyledHeader>
       <StyledTitle>{title}</StyledTitle>
-      <ProductFilter options={["XS", "S", "M", "L", "XL"]}></ProductFilter>
+      <ProductFilter options={filterOptions}></ProductFilter>
     </StyledHeader>
   );
 };
-
 export default Header;
