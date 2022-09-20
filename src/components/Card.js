@@ -11,8 +11,8 @@ const Card = ({ product }) => {
         <div className="product-card__promo__label">Sale</div>
       </div>
       <div className="product-card__info">
-        <div className="product-card__info__name">Product name</div>
-        <div className="product-card__info__price">$15.00</div>
+        <div className="product-card__info__name">{product.productName}</div>
+        <div className="product-card__info__price">{product.price}</div>
       </div>
     </div>
   );

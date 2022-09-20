@@ -1,9 +1,10 @@
 @import "../mixins.scss";
 .product-card {
   border: 1px solid grey;
-  display: flex;
+  display: grid;
   justify-content: space-evenly;
   flex-direction: column;
+  flex-basis: 0;
   padding: 10px 3px;
   margin: 5px 0;
   margin: 0 10px;
@@ -26,6 +27,7 @@
     width: auto;
     text-align: left;
     display: flex;
+
     &__label {
       justify-content: center;
       color: white;
@@ -39,9 +41,11 @@
     font-weight: bold;
     font-size: 1.2rem;
     margin: 5px 0;
+
     &__name {
       padding: 0 5px;
     }
+
     &__price {
       margin-left: auto;
       margin-right: 0;

@@ -4,17 +4,11 @@ const StyledDropdown = styled.select`
   height: 32px;
 `;
 const ProductFilter = ({ options }) => {
-  console.log(options);
-  options.forEach((element) => {
-    console.log(element);
-  });
   return (
     <StyledDropdown>
-      <option value="" selected disabled hidden>
-        filter by size
-      </option>
+      <option defaultValue="filter by size" disabled hidden></option>
       {options.map((size, index) => {
-        return <option>{size}</option>;
+        return <option key={index}>{size}</option>;
       })}
     </StyledDropdown>
   );

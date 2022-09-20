@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Card from "./Card";
+
 const StyledCatalogue = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,11 +10,12 @@ const StyledCatalogue = styled.div`
     justify-content: space-evenly;
   }
 `;
+
 const ProductCatalogue = ({ products }) => {
   return (
     <StyledCatalogue>
-      {products.map((product, index) => {
-        return <Card>{product}</Card>;
+      {products.map((product) => {
+        return <Card product={product} key={product.index}></Card>;
       })}
     </StyledCatalogue>
   );
