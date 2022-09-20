@@ -1,0 +1,51 @@
+@import "../mixins.scss";
+.product-card {
+  border: 1px solid grey;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 10px 3px;
+  margin: 5px 0;
+  margin: 0 10px;
+  @include desktop-view {
+    max-width: 30%;
+    min-width: 25%;
+    margin: 0;
+  }
+
+  &__image {
+    margin: 0 auto 5px;
+    max-width: 20rem;
+    max-height: 50rem;
+  }
+
+  &__promo {
+    font-size: 1rem;
+    line-height: 50px;
+    height: 50px;
+    width: auto;
+    text-align: left;
+    display: flex;
+    &__label {
+      justify-content: center;
+      color: white;
+      background-color: red;
+      padding: 0 15px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 5px 0;
+    &__name {
+      padding: 0 5px;
+    }
+    &__price {
+      margin-left: auto;
+      margin-right: 0;
+      padding: 0 5px;
+    }
+  }
+}
