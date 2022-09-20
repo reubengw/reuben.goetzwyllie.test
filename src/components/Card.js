@@ -1,5 +1,7 @@
 import "./Card.scss";
 import Promotion from "./Promotion";
+import ProductInfo from "./ProductInfo";
+
 const Card = ({ product }) => {
   return (
     <div className="product-card">
@@ -16,10 +18,7 @@ const Card = ({ product }) => {
           <Promotion classNames={"exclusive"} content="Exclusive"></Promotion>
         )}
       </div>
-      <div className="product-card__info">
-        <div className="product-card__info__name">{product.productName}</div>
-        <div className="product-card__info__price">{product.price}</div>
-      </div>
+      <ProductInfo product={product}></ProductInfo>
     </div>
   );
 };
