@@ -1,15 +1,15 @@
 import "./Card.scss";
 import Promotion from "./Promotion";
 import ProductInfo from "./ProductInfo";
+import ProductImage from "./ProductImage";
 
 const Card = ({ product }) => {
   return (
     <div className="product-card">
-      <img
-        className="product-card__image"
-        alt="product"
-        src="http://placekitten.com/200/300"
-      ></img>
+      <ProductImage
+        src={product.productImage}
+        alt={product.productName}
+      ></ProductImage>
       <div className="product-card__promo">
         {product.isSale && (
           <Promotion classNames={"onsale"} content="Sale"></Promotion>
