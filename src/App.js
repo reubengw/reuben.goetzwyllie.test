@@ -17,6 +17,10 @@ function App() {
   }, []);
 
   const handleFilterChanged = (sizeSelected) => {
+    if (sizeSelected === "nofilter") {
+      setDisplayedProducts(productCatalogue);
+      return;
+    }
     const newDisplay = [];
     productCatalogue.forEach((product) => {
       if (product.size.includes(sizeSelected)) {
