@@ -10,14 +10,12 @@ const Card = ({ product }) => {
         src={product.productImage}
         alt={product.productName}
       ></ProductImage>
-      <div className="product-card__promo">
-        {product.isSale && (
-          <Promotion classNames={"onsale"} content="Sale"></Promotion>
-        )}
-        {product.isExclusive && (
-          <Promotion classNames={"exclusive"} content="Exclusive"></Promotion>
-        )}
-      </div>
+      {product.isSale && (
+        <Promotion classNames={"onsale"} content="Sale"></Promotion>
+      )}
+      {product.isExclusive && (
+        <Promotion classNames={"exclusive"} content="Exclusive"></Promotion>
+      )}
       <ProductInfo product={product}></ProductInfo>
     </div>
   );
