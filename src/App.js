@@ -4,18 +4,32 @@ import ProductCatalogue from "./components/ProductCatalogue";
 import { useEffect, useState } from "react";
 
 function App() {
+  const appTitle = "Women's tops";
+  const filterOptions = ["XS", "S", "M", "L", "XL"];
   const [productCatalogue, setProductCatalogue] = useState([]);
   const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [error, setError] = useState();
+  // fetch product data, set state for entire catalogue and its displayed subset
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch("products.json");
-      const products = await response.json();
-      setDisplayedProducts(products);
-      setProductCatalogue(products);
+      try {
+        const response = await fetch("products.json");
+        const products = await response.json();
+        // throw error if input is not an array
+        if (!Array.isArray(products)) {
+          throw new Error();
+        }
+        setDisplayedProducts(products);
+        setProductCatalogue(products);
+      } catch (error) {
+        console.log(error);
+        setError("Oops! something went wrong");
+      }
     };
     getData();
   }, []);
 
+  //set displayed products depending on size selected in ProductFilter component
   const handleFilterChanged = (sizeSelected) => {
     if (sizeSelected === "nofilter") {
       setDisplayedProducts(productCatalogue);
@@ -34,11 +48,15 @@ function App() {
     <div className="App">
       <div>
         <Header
-          title={"Women's tops"}
-          filterOptions={["XS", "S", "M", "L", "XL"]}
+          title={appTitle}
+          filterOptions={filterOptions}
           handleFilterChanged={handleFilterChanged}
         ></Header>
-        <ProductCatalogue products={displayedProducts}></ProductCatalogue>
+        {error ? (
+          <div>{error}</div>
+        ) : (
+          <ProductCatalogue products={displayedProducts}></ProductCatalogue>
+        )}
       </div>
     </div>
   );
