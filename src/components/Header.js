@@ -12,11 +12,14 @@ const StyledHeader = styled.div`
   width: 100%;
 `;
 
-const Header = ({ title, filterOptions }) => {
+const Header = ({ title, filterOptions, handleFilterChanged }) => {
   return (
     <StyledHeader>
       <StyledTitle>{title}</StyledTitle>
-      <ProductFilter options={filterOptions}></ProductFilter>
+      <ProductFilter
+        options={filterOptions}
+        handleFilterChanged={handleFilterChanged}
+      ></ProductFilter>
     </StyledHeader>
   );
 };
