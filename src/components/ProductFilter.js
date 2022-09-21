@@ -6,9 +6,15 @@ const StyledDropdown = styled.select`
 const ProductFilter = ({ options }) => {
   return (
     <StyledDropdown>
-      <option defaultValue="filter by size" disabled hidden></option>
+      <option value="" selected>
+        Filter by size
+      </option>
       {options.map((size, index) => {
-        return <option key={index}>{size}</option>;
+        return (
+          <option key={index} value={size}>
+            {size}
+          </option>
+        );
       })}
     </StyledDropdown>
   );
